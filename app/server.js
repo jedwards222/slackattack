@@ -42,6 +42,10 @@ controller.hears(['hello', 'hi', 'howdy', 'whatsup'], ['direct_message', 'direct
   });
 });
 
+controller.on('outgoing_webhook', (bot, message) => {
+  bot.replyPublic(message, 'I\'m awake!');
+});
+
 // Restaurant recommender
 // Based on code here: https://github.com/howdyai/botkit/blob/master/readme.md#receiving-messages
 controller.hears(['hungry', 'food', 'eat', 'restaurant', 'feed'], ['direct_message', 'direct_mention'], (bot, message) => {
